@@ -1,9 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h1 class="mb-6 text-center text-white tracking-wide">{{ message }}</h1>	
+    <h1 class="mb-6 text-center text-white tracking-wide">{{ message }}</h1>
+    <input type="text" v-model="vText" />
     <button type="button" 
-      @click="event('click')" 
+     @click="event"
       class="bg-blue text-white px-4 py-3 text-lg font-medium rounded hover:shadow-lg hover:bg-blue-dark outline-none mx-2">
       Click
     </button>
@@ -40,14 +41,17 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
+    message: String,
+    count: {
+      type: Number,
+      default: 0
+    },
+    vText: String
   },
   methods:{
-    event(type) {
-      switch(type) {
-        case 'click': 
-          return this.message = 'Button Clicked';
-      }
+    event: function() {
+      this.message = 'Button Clicked: '+ this.vText + ', ' + this.count++;
     }
   }
 }
