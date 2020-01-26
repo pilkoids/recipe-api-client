@@ -68,11 +68,23 @@ export default {
     },
     recipeFetch: function(){
       const axios = require('axios').default;
+      //http://dummy.restapiexample.com/api/v1/employees
+      //http://localhost:3000/ping
       axios.get('http://localhost:3000/ping')
         .then( (response) => {
          // let resp = JSON.stringify(response);
           // handle success
-          this.message = 'API response:' + JSON.stringify(response);
+      /*    var respArr = [];
+          response.ApiResponse.forEach(recipe => {
+            respArr.push(recipe.instructions);
+          })
+*/
+          let recipeArr = [];
+          response.body.map(recipe =>
+            recipeArr.push(recipe.instructions)
+          );
+
+          this.message = 'API response:' + JSON.stringify(response);// + respArr.toString();
         });
     }
   },
