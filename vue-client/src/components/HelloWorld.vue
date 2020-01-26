@@ -4,7 +4,7 @@
     <h1 class="mb-6 text-center text-white tracking-wide">{{ message }}</h1>
     <input type="text" v-model="vText" />
     <button type="button" 
-     @click="event"
+     @click="recipeFetch"
       class="bg-blue text-white px-4 py-3 text-lg font-medium rounded hover:shadow-lg hover:bg-blue-dark outline-none mx-2">
       Click
     </button>
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   props: {
@@ -47,11 +48,37 @@ export default {
       type: Number,
       default: 0
     },
-    vText: String
+    vText: String,
+  },
+  mounted(){
+    this.recipeFetch();
+    //const axios = require('axios').default;
+
+    /*axios.get('http://localhost:3000/ping')
+        .then( (response)=> {
+         // let resp = JSON.stringify(response);
+          // handle success
+          this.message = response;
+        })*/
   },
   methods:{
     event: function() {
-      this.message = 'Button Clicked: '+ this.vText + ', ' + this.count++;
+      let test = this.test();
+      this.message = 'Button Clicked: '+ this.vText + ', ' + this.count++ + ' - ' + test;
+    },
+    recipeFetch: function(){
+      const axios = require('axios').default;
+      axios.get('http://localhost:3000/ping')
+        .then( (response) => {
+         // let resp = JSON.stringify(response);
+          // handle success
+          this.message = 'API response:' + JSON.stringify(response);
+        });
+    }
+  },
+  computed :{
+    recipeData(){
+      return this.message;
     }
   }
 }
