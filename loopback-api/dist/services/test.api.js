@@ -5,7 +5,7 @@ var unirest = require("unirest");
 class TestApi {
     response() {
         return new Promise((resolve, reject) => {
-            var req = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/quickAnswer");
+            var req = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids=779916%2C20444");
             req.query({
                 "q": "How much vitamin c is in 1 orange"
             });

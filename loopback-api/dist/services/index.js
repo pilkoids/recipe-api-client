@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var test_api_1 = require("./test.api");
-exports.TestApi = test_api_1.TestApi;
+var GetRecipeFromIngredients_1 = require("./GetRecipeFromIngredients");
+exports.GetRecipeFromIngredients = GetRecipeFromIngredients_1.GetRecipeFromIngredients;
 //# sourceMappingURL=index.js.map

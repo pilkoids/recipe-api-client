@@ -24,7 +24,7 @@ let PingController = class PingController {
     }
     // Map to `GET /ping`
     ping() {
-        return new services_1.TestApi().response().then((apiResponse) => {
+        return new services_1.GetRecipeFromIngredients().response(["beef", "rice"]).then((apiResponse) => {
             return {
                 apiResponse
             };

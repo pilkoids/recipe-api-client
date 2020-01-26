@@ -1,1 +1,1 @@
-export { TestApi } from "./test.api";
+export { GetRecipeFromIngredients } from "./GetRecipeFromIngredients";
