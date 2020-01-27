@@ -23,10 +23,11 @@ let RecipeController = class RecipeController {
     constructor(req) {
         this.req = req;
     }
-    // Map to `GET /ping`
+    // Map to `GET /getRecipes`
     getRecipes(ingredients) {
         console.log("---------------Ingredients:", ingredients);
-        return new services_1.GetRecipeFromIngredients().response(["beef", "rice"]).then((apiResponse) => {
+        var ingredientArray = ingredients.split(',');
+        return new services_1.GetRecipeFromIngredients().response(ingredientArray).then((apiResponse) => {
             return {
                 apiResponse
             };
@@ -34,12 +35,8 @@ let RecipeController = class RecipeController {
     }
 };
 __decorate([
-    rest_1.get('/getRecipes/{ingredients}', {
-        responses: {
-            '200': "PING_RESPONSE",
-        },
-    }),
-    __param(0, rest_2.param.query.string('ingredients')),
+    rest_1.get('/getRecipes/{ingredients}'),
+    __param(0, rest_2.param.path.string('ingredients')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Object)

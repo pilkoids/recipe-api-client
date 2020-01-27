@@ -12,16 +12,12 @@ export class RecipeController {
   constructor(@inject(RestBindings.Http.REQUEST) private req: Request) {}
 
 
-  // Map to `GET /ping`
-  @get('/getRecipes/{ingredients}', {
-    responses: {
-      '200': "PING_RESPONSE",
-    },
-  })
-
-  getRecipes(@param.query.string('ingredients') ingredients: string): any {
+  // Map to `GET /getRecipes`
+  @get('/getRecipes/{ingredients}')
+  getRecipes(@param.path.string('ingredients') ingredients: string): any {
     console.log("---------------Ingredients:", ingredients);
-    return new GetRecipeFromIngredients().response(["beef","rice"]).then((apiResponse)=>{
+    var ingredientArray = ingredients.split(',');
+    return new GetRecipeFromIngredients().response(ingredientArray).then((apiResponse)=>{
       return {
         apiResponse
       };

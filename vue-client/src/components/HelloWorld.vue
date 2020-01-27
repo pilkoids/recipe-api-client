@@ -11,7 +11,7 @@
 
     <ul>
       <li v-bind:key="item" v-for="item in items">
-        {{ item }} <br>
+        <a v-bind:href="item.url">{{ item.name }}</a>
       </li>
     </ul>
 
@@ -28,7 +28,7 @@ export default {
     ingredients: String,
     items: {
       type: Array,
-      default:()=>{return []}
+      default:()=>{return [{}]}
     },
     count: {
       type: Number,
@@ -56,15 +56,13 @@ export default {
       const axios = require('axios').default;
       //http://dummy.restapiexample.com/api/v1/employees
       //http://localhost:3000/ping
-      axios.get('http://localhost:3000/ping')
+      axios.get('http://localhost:3000/getRecipes/' + this.ingredients)
         .then( (response) => {
           let recipeArr = [];
           response.data.apiResponse.map((res) =>{
             recipeArr.push(res.title);
-            this.items.push(res.title);
+            this.items.push({name: res.title, url: res.sourceUrl});
           });
-
-          this.message = 'API response:' + recipeArr.toString(); //JSON.stringify(response.data.apiResponse);// + respArr.toString();
         });
     }
   },

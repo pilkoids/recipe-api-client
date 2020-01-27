@@ -1358,7 +1358,7 @@
         "signature": "b72f0b3a44b065c5e8aac72ae7f4c8188d765e44b0400414ded3f718ee9e0dfd"
       },
       "./src/controllers/recipe.controller.ts": {
-        "version": "3ff6c63065871eba5324a9955bc086218aeced3d18b8f29d2fc5d62371a0e52e",
+        "version": "65724b122142abfd31ed22a9a140fad9fe1eadd37108851c26250dd6d625675b",
         "signature": "c4268d14aead62ba9d356620ceee3ad94e4574f63ff89524ea8241c9a254a5a4"
       },
       "./src/controllers/index.ts": {
@@ -6348,6 +6348,7 @@
       "./src/__tests__/acceptance/ping.controller.acceptance.ts",
       "./src/services/getrecipefromingredients.ts",
       "./src/services/index.ts",
+      "./src/controllers/index.ts",
       "./node_modules/@types/color-name/index.d.ts",
       "./node_modules/@types/debug/index.d.ts",
       "./node_modules/@types/eslint-visitor-keys/index.d.ts",
@@ -6357,8 +6358,7 @@
       "./node_modules/@types/mocha/index.d.ts",
       "./node_modules/@types/on-finished/index.d.ts",
       "./node_modules/@types/type-is/index.d.ts",
-      "./src/controllers/recipe.controller.ts",
-      "./src/controllers/index.ts"
+      "./src/controllers/recipe.controller.ts"
     ]
   },
   "version": "3.7.5"
