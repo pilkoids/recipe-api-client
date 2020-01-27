@@ -36,7 +36,7 @@ class GetRecipeFromIngredients {
                 req.end(function (res) {
                     if (res.error)
                         throw new Error(res.error);
-                    console.log(res.body);
+                    //console.log(res.body);
                     resolve(res.body);
                 });
             });

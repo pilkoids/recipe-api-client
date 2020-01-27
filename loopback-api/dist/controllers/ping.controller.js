@@ -23,7 +23,7 @@ let PingController = class PingController {
         this.req = req;
     }
     // Map to `GET /ping`
-    ping() {
+    getRecipe() {
         return new services_1.GetRecipeFromIngredients().response(["beef", "rice"]).then((apiResponse) => {
             return {
                 apiResponse
@@ -40,7 +40,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Object)
-], PingController.prototype, "ping", null);
+], PingController.prototype, "getRecipe", null);
 PingController = __decorate([
     __param(0, context_1.inject(rest_1.RestBindings.Http.REQUEST)),
     __metadata("design:paramtypes", [Object])
