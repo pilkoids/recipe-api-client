@@ -11,7 +11,8 @@
 
     <ul>
       <li v-bind:key="item" v-for="item in items">
-        <a v-bind:href="item.url">{{ item.name }}</a>
+        <a v-bind:href="item.url"><img v-bind:src="item.image" style="height:75px"/> {{ item.name }}</a>
+        <p>{{item.instructions}}</p>
       </li>
     </ul>
 
@@ -21,6 +22,7 @@
 <script>
 
 export default {
+  //https://medium.com/rakuten-rapidapi/api-tutorial-spoonacular-api-for-food-and-recipes-bfc1ccb24a9f
   name: 'HelloWorld',
   props: {
     msg: String,
@@ -61,7 +63,7 @@ export default {
           let recipeArr = [];
           response.data.apiResponse.map((res) =>{
             recipeArr.push(res.title);
-            this.items.push({name: res.title, url: res.sourceUrl});
+            this.items.push({name: res.title, url: res.sourceUrl, image: res.image, instructions: res.instructions});
           });
         });
     }
@@ -86,7 +88,7 @@ ul {
   padding: 0;
   border:solid 1px;
   width:auto;
-  max-width:400px;
+  max-width:700px;
   margin:0 auto;
   margin-top:30px;
   padding:15px;
@@ -95,7 +97,10 @@ ul {
 li {
   display: block;
   margin: 0 10px;
-  text-align:left
+  text-align:left;
+  margin:15px;
+  background:#f2f2f2;
+  font-size:12px;
 }
 a {
   color: #42b983;
