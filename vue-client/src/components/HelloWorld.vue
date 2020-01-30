@@ -2,12 +2,14 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
-    <input type="text" v-model="ingredients" placeholder="Enter ingredients separated by commas"/>
-    <button type="button" 
+    <input type="text" v-model="ingredients" placeholder="Enter ingredients separated by commas" style="padding:15px;font-size:15px;"/><br><button type="button" 
      @click="recipeFetch"
       class="bg-blue text-white px-4 py-3 text-lg font-medium rounded hover:shadow-lg hover:bg-blue-dark outline-none mx-2">
-      Click
+      Submit
     </button>
+    <p style="margin-top:25px;">Or, take a picture of an ingredient and submit it:</p>
+    <input type="file" accept="image/*" capture="camera">
+
 
     <ul>
       <li v-bind:key="item" v-for="item in items">
@@ -107,6 +109,11 @@ a {
 }
 input{
   width:400px;
+}
+button{
+  display:block;
+  margin:0 auto;
+  margin-top:10px;
 }
 
 </style>

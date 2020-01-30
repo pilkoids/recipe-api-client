@@ -1358,7 +1358,7 @@
         "signature": "b72f0b3a44b065c5e8aac72ae7f4c8188d765e44b0400414ded3f718ee9e0dfd"
       },
       "./src/controllers/recipe.controller.ts": {
-        "version": "65724b122142abfd31ed22a9a140fad9fe1eadd37108851c26250dd6d625675b",
+        "version": "1d99253e68eb2957927f03a9b3833b126674607145ef94d4d1910b5dedf29fa9",
         "signature": "c4268d14aead62ba9d356620ceee3ad94e4574f63ff89524ea8241c9a254a5a4"
       },
       "./src/controllers/index.ts": {

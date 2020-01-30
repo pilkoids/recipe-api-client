@@ -16,12 +16,21 @@ const rest_1 = require("@loopback/rest");
 const context_1 = require("@loopback/context");
 const services_1 = require("../services");
 const rest_2 = require("@loopback/rest");
+const Clarifai = require('clarifai');
 /**
  * A simple controller to bounce back http requests
  */
 let RecipeController = class RecipeController {
     constructor(req) {
         this.req = req;
+        const clarifaiApp = new Clarifai.App({
+            apiKey: '7c50821e761a48458922fec486e40a74'
+        });
+        clarifaiApp.models.predict(Clarifai.GENERAL_MODEL, 'https://www.dinnerplanner.com/wp-content/uploads/2018/06/raw-chicken.jpg').then((response) => {
+            console.log("Clarifai response:" + JSON.stringify(response));
+        }).catch((err) => {
+            console.log(err);
+        });
     }
     // Map to `GET /getRecipes`
     getRecipes(ingredients) {
